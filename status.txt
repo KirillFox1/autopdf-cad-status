@@ -1,0 +1,3 @@
+AUTOPDF-CAD-STATUS/1
+state=enabled
+revision=1
