@@ -2,9 +2,11 @@
 
 Public read-only availability policy for AutoPDF CAD v0.7.2 and later.
 
-The plugin reads the public Atom feed of the latest `main` commit, validates
-its repository and SHA, then fetches `status.txt` from that immutable commit.
-It never uses the cached raw `main/status.txt` URL as permission to run.
+AutoPDF v0.8.1 reads the public Atom history of `main/status.txt`, validates
+its repository and latest SHA, then reads the immutable `github.com` commit diff.
+It reconstructs the complete three-line policy and checks its Git blob hash.
+Both requests stay on `github.com`; Raw hosting is not required.
+Older clients read the same file through their previous route.
 The file contains only the product identifier, state and a positive revision.
 
 Only the repository owner and explicitly authorized writers can change it.
